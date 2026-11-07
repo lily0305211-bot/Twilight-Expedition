@@ -1,4 +1,4 @@
-const CACHE='duskbound-rebirth-1.0.1';
+const CACHE='duskbound-rebirth-1.2.0';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./assets/cover.png','./assets/icon-192.png','./assets/icon-512.png','./vendor/three.module.js','./vendor/three.core.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('duskbound-rebirth-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
